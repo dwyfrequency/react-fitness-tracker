@@ -1,11 +1,18 @@
 import React from 'react';
 import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
 
-export const ExerciseEntry = props => (
+export const ExerciseEntry = ({
+  completed,
+  itemId,
+  date,
+  name,
+  description,
+  timeDuration,
+}) => (
   <React.Fragment>
     <div className="exercise" className="exercise-header">
       <span onClick={() => {}}>
-        {props.completed ? <FaRegCheckCircle /> : <FaRegCircle />}
+        {completed ? <FaRegCheckCircle /> : <FaRegCircle />}
       </span>
       <h3>Bicycling</h3>
       <span>30 min</span>

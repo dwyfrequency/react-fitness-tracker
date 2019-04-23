@@ -10,14 +10,14 @@ export default function() {
             {
               name: 'Bicycling',
               timeDuration: 30,
-              desription:
+              description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum \nest volutpat ultricies consequat. Class aptent taciti sociosqu ad litora\n torquent per conubia nostra, per inceptos himenaeos.',
               completed: false,
             },
             {
               name: 'Running',
               timeDuration: 45,
-              desription:
+              description:
                 'Blorem ipsum dolor sit amet, consectetur adipiscing elit. Dimsum fermentum \nest volutpat ultricies consequat. Class aptent taciti sociosqu ad litora\n torquent per conubia nostra, per inceptos himenaeos.',
               completed: false,
             },
@@ -31,14 +31,14 @@ export default function() {
             {
               name: 'Bicycling',
               timeDuration: 30,
-              desription:
+              description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum \nest volutpat ultricies consequat. Class aptent taciti sociosqu ad litora\n torquent per conubia nostra, per inceptos himenaeos.',
               completed: false,
             },
             {
               name: 'Swimming',
               timeDuration: 30,
-              desription:
+              description:
                 'Vivamus eu consequat ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mattis augue, eget interdum diam.',
               completed: true,
             },

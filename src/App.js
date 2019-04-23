@@ -18,7 +18,7 @@ function App() {
           return {
             id,
             date,
-            ...dailyWorkout,
+            dailyWorkout,
           };
         });
         setWorkouts(workoutsArr);
