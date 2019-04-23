@@ -24,35 +24,30 @@ function App() {
       });
   }, []);
 
-  const toggleCompleted = (e, id, name) => {
-    const destructureDailyWorkout = (dailyWorkout, name) => {
-      return dailyWorkout.map(x => {
-        if (x.name === name) {
-          const completed = !x.completed;
+  const toggleCompleted = (e, entryId, workoutName) => {
+    const destructureDailyWorkout = dailyWorkout => {
+      return dailyWorkout.map(exercise => {
+        if (exercise.name === workoutName) {
+          const completed = !exercise.completed;
           const newState = {
-            ...x,
+            ...exercise,
             completed,
           };
-          console.log('new state');
-          // return {
-          //   ...x,
-          //   completed,
-          // };
           return newState;
         }
-        return x;
+        return exercise;
       });
     };
-    const newWorkoutState = workouts.reduce((accum, werk) => {
-      if (werk.id === id) {
-        const dailyWorkout = destructureDailyWorkout(werk.dailyWorkout, name);
+    const newWorkoutState = workouts.reduce((accum, entry) => {
+      if (entry.id === entryId) {
+        const dailyWorkout = destructureDailyWorkout(entry.dailyWorkout);
         const newWorkoutObj = {
-          ...werk,
+          ...entry,
           dailyWorkout,
         };
         return accum.concat(newWorkoutObj);
       }
-      return accum.concat(werk);
+      return accum.concat(entry);
     }, []);
 
     setWorkouts(newWorkoutState);
