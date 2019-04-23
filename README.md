@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+icon: FaRegCheckCircle
+
+icon documentation:
+https://www.npmjs.com/package/react-icons
+https://react-icons.netlify.com/#/icons/fa
+
 ## Available Scripts
 
 In the project directory, you can run:
