@@ -3,8 +3,8 @@ import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
 
 export const ExerciseEntry = props => (
   <React.Fragment>
-    <div class="exercise" class="exercise-header">
-      <FaRegCircle />
+    <div className="exercise" className="exercise-header">
+      {props.completed ? <FaRegCheckCircle /> : <FaRegCircle />}
       <h3>Bicycling</h3>
       <span>30 min</span>
     </div>

@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavBar } from './NavBar';
 import { SidebarAnalytics } from './SidebarAnalytics';
 import { WorkoutLog } from './WorkoutLog';
 import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
+import callWorkoutDB from './__mockapi/callWorkoutDb.js';
 
 function App() {
-  const toggleCompletedBtn = e => {};
+  const [workouts, setWorkouts] = useState([]);
+
+  useEffect(() => {
+    // https://wanago.io/2018/09/17/javascript-testing-tutorial-part-four-mocking-api-calls-and-simulating-react-components-interactions/
+    callWorkoutDB()
+      .then(queryDBObj => queryDBObj.get())
+      .then(data => console.log(data));
+  }, []);
+
+  const toggleCompleted = e => {};
   return (
     <div className="App">
       <NavBar />

@@ -1,15 +1,15 @@
 import React from 'react';
-import { PanelHeader } from './MainHeader';
+import { PanelHeader } from './PanelHeader';
 import { ExerciseEntry } from './ExerciseEntry';
 import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
 
 export const WorkoutLog = props => {
   return (
     <div id="workouts">
-      <div class="workout">
+      <div className="workout">
         <PanelHeader className={'workout-header'} editable={true} />
         <ExerciseEntry />
-        <div id="exercise-2" class="exercise-header">
+        <div id="exercise-2" className="exercise-header">
           <FaRegCircle />
           <h3>Running</h3>
           <span>45 min</span>
@@ -22,9 +22,9 @@ export const WorkoutLog = props => {
           ipsum.
         </div>
       </div>
-      <div class="workout">
+      <div className="workout">
         <PanelHeader className={'workout-header'} editable={true} />
-        <div id="exercise-3" class="exercise-header">
+        <div id="exercise-3" className="exercise-header">
           <FaRegCircle />
           <h3>Swimming</h3>
           <span>30 min</span>
@@ -34,7 +34,7 @@ export const WorkoutLog = props => {
           adipiscing elit. Suspendisse sit amet mattis augue, eget interdum
           diam.
         </div>
-        <div id="exercise-4" class="exercise-header">
+        <div id="exercise-4" className="exercise-header">
           <FaRegCheckCircle />
           <h3>Running</h3>
           <span>20 min</span>
