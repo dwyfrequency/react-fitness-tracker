@@ -1,4 +1,5 @@
 import React from 'react';
+import { PanelHeader } from './MainHeader';
 import { ExerciseEntry } from './ExerciseEntry';
 import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
 
@@ -6,10 +7,7 @@ export const WorkoutLog = props => {
   return (
     <div id="workouts">
       <div class="workout">
-        <div class="workout-header">
-          <h2>Tuesday Routine</h2>
-          <FaEdit />
-        </div>
+        <PanelHeader className={'workout-header'} editable={true} />
         <ExerciseEntry />
         <div id="exercise-2" class="exercise-header">
           <FaRegCircle />
@@ -25,10 +23,7 @@ export const WorkoutLog = props => {
         </div>
       </div>
       <div class="workout">
-        <div class="workout-header">
-          <h2>Saturday Routine</h2>
-          <FaEdit />
-        </div>
+        <PanelHeader className={'workout-header'} editable={true} />
         <div id="exercise-3" class="exercise-header">
           <FaRegCircle />
           <h3>Swimming</h3>
