@@ -10,7 +10,7 @@ export const ExerciseEntry = ({
   timeDuration,
   toggleCompleted,
 }) => {
-  console.log('rendering log');
+  console.log('rendering log', { completed });
   return (
     <React.Fragment>
       <div className="exercise exercise-header">

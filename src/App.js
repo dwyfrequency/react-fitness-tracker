@@ -25,17 +25,37 @@ function App() {
   }, []);
 
   const toggleCompleted = (e, id, name) => {
-    // debugger;
-    // child components are not being rerendered event though we are toggling. Potentially b/c we are not passing a new obj ref and doing it inline/ let's update that
-    const workoutReference = workouts.find(element => element.id === id);
-    workoutReference.dailyWorkout.forEach(x => {
-      if (x.name === name) x.completed = !x.completed;
-    });
-    console.log(workoutReference);
-    // .find(x => x.name === name);
-    // workoutReference.completed = !workoutReference.completed;
-    // setWorkouts(workouts);
-    setWorkouts(workouts);
+    const destructureDailyWorkout = (dailyWorkout, name) => {
+      return dailyWorkout.map(x => {
+        if (x.name === name) {
+          const completed = !x.completed;
+          const newState = {
+            ...x,
+            completed,
+          };
+          console.log('new state');
+          // return {
+          //   ...x,
+          //   completed,
+          // };
+          return newState;
+        }
+        return x;
+      });
+    };
+    const newWorkoutState = workouts.reduce((accum, werk) => {
+      if (werk.id === id) {
+        const dailyWorkout = destructureDailyWorkout(werk.dailyWorkout, name);
+        const newWorkoutObj = {
+          ...werk,
+          dailyWorkout,
+        };
+        return accum.concat(newWorkoutObj);
+      }
+      return accum.concat(werk);
+    }, []);
+
+    setWorkouts(newWorkoutState);
   };
   return (
     <div className="App">
