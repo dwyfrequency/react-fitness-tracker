@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
+import { FaRegCircle, FaRegCheckCircle } from 'react-icons/fa';
 
 export const ExerciseEntry = ({
   completed,
@@ -8,19 +8,19 @@ export const ExerciseEntry = ({
   name,
   description,
   timeDuration,
-}) => (
-  <React.Fragment>
-    <div className="exercise" className="exercise-header">
-      <span onClick={() => {}}>
-        {completed ? <FaRegCheckCircle /> : <FaRegCircle />}
-      </span>
-      <h3>Bicycling</h3>
-      <span>30 min</span>
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum
-      est volutpat ultricies consequat. Class aptent taciti sociosqu ad litora
-      torquent per conubia nostra, per inceptos himenaeos.
-    </div>
-  </React.Fragment>
-);
+  toggleCompleted,
+}) => {
+  console.log('rendering log');
+  return (
+    <React.Fragment>
+      <div className="exercise exercise-header">
+        <span onClick={e => toggleCompleted(e, itemId, name)}>
+          {completed ? <FaRegCheckCircle /> : <FaRegCircle />}
+        </span>
+        <h3>{name}</h3>
+        <span>{timeDuration} min</span>
+      </div>
+      <div>{description}</div>
+    </React.Fragment>
+  );
+};

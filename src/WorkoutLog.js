@@ -1,9 +1,8 @@
 import React from 'react';
 import { PanelHeader } from './PanelHeader';
 import { ExerciseEntry } from './ExerciseEntry';
-import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
 
-export const WorkoutLog = ({ workouts }) => {
+export const WorkoutLog = ({ workouts, toggleCompleted }) => {
   const workoutEntries = workouts.map(({ id, date, dailyWorkout }, idx) => (
     <div key={`${id}#${idx}`} className="workout">
       <PanelHeader className={'workout-header'} editable={true} />
@@ -13,6 +12,7 @@ export const WorkoutLog = ({ workouts }) => {
           itemId={id}
           date={date}
           {...workout}
+          toggleCompleted={toggleCompleted}
         />
       ))}
     </div>
