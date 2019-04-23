@@ -1,13 +1,14 @@
-import React from 'react';
-import { Header } from './Header';
+import React, { useState } from 'react';
+import { NavBar } from './NavBar';
 import { SidebarAnalytics } from './SidebarAnalytics';
-import WorkooutLog, { WorkoutLog } from './WorkoutLog';
+import { WorkoutLog } from './WorkoutLog';
 import { FaRegCircle, FaRegCheckCircle, FaEdit } from 'react-icons/fa';
 
 function App() {
+  const toggleCompletedBtn = e => {};
   return (
     <div className="App">
-      <Header />
+      <NavBar />
       <div id="container">
         <SidebarAnalytics />
         <WorkoutLog />
