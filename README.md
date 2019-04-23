@@ -6,6 +6,11 @@ icon documentation:
 https://www.npmjs.com/package/react-icons
 https://react-icons.netlify.com/#/icons/fa
 
+To do:
+Test mock api
+Store the data in state
+Pass down the info to the relevant components
+
 ## Available Scripts
 
 In the project directory, you can run:

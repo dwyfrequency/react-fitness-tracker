@@ -12,7 +12,17 @@ function App() {
     // https://wanago.io/2018/09/17/javascript-testing-tutorial-part-four-mocking-api-calls-and-simulating-react-components-interactions/
     callWorkoutDB()
       .then(queryDBObj => queryDBObj.get())
-      .then(data => console.log(data));
+      .then(data => {
+        console.log(data);
+        const workoutsArr = data.map(({ id, date, dailyWorkout }) => {
+          return {
+            id,
+            date,
+            ...dailyWorkout,
+          };
+        });
+        setWorkouts(workoutsArr);
+      });
   }, []);
 
   const toggleCompleted = e => {};
@@ -21,7 +31,7 @@ function App() {
       <NavBar />
       <div id="container">
         <SidebarAnalytics />
-        <WorkoutLog />
+        <WorkoutLog workouts={workouts} />
       </div>
     </div>
   );

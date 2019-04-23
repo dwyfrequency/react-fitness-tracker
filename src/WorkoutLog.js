@@ -9,6 +9,7 @@ export const WorkoutLog = props => {
       <div className="workout">
         <PanelHeader className={'workout-header'} editable={true} />
         <ExerciseEntry />
+        <ExerciseEntry />
         <div id="exercise-2" className="exercise-header">
           <FaRegCircle />
           <h3>Running</h3>
