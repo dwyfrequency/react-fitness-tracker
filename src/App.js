@@ -29,6 +29,7 @@ function App() {
       });
   }, []);
 
+  // do we need to use - usecallback, how do we make this function run anytime the workouts change
   // useEffect(() => {
   //   calcAnalytics;
   // }, [calcAnalytics, workouts]);
