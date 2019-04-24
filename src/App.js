@@ -83,7 +83,6 @@ function App() {
       totalExercisesCompleted,
       totalMinutes,
     } = createAnalyticsVars(workouts);
-
     const favoriteExercise = getFavoriteFromCounter(exerciseCounter);
     const percentageCompleted = getPercent(
       totalExercisesCompleted,
@@ -96,6 +95,22 @@ function App() {
       totalExercises,
     });
   };
+
+  useEffect(() => {
+    callWorkoutDB()
+      .then(queryDBObj => queryDBObj.get())
+      .then(data => {
+        console.log(data);
+        const workoutsArr = data.map(({ id, date, dailyWorkout }) => {
+          return {
+            id,
+            date,
+            dailyWorkout,
+          };
+        });
+        setWorkouts(workoutsArr);
+      });
+  }, []);
 
   const toggleCompleted = (e, entryId, workoutName) => {
     const newWorkoutState = workouts.reduce((accum, entry) => {
@@ -116,21 +131,6 @@ function App() {
     setWorkouts(newWorkoutState);
   };
 
-  useEffect(() => {
-    callWorkoutDB()
-      .then(queryDBObj => queryDBObj.get())
-      .then(data => {
-        console.log(data);
-        const workoutsArr = data.map(({ id, date, dailyWorkout }) => {
-          return {
-            id,
-            date,
-            dailyWorkout,
-          };
-        });
-        setWorkouts(workoutsArr);
-      });
-  }, []);
   return (
     <div className="App">
       <NavBar />
