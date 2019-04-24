@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const SidebarAnalytics = props => {
+export const SidebarAnalytics = ({
+  analytics: { totalMinutes, favoriteExercise, percentageCompleted },
+}) => {
   return (
     <div id="analytics">
       <div>
@@ -9,15 +11,15 @@ export const SidebarAnalytics = props => {
         </div>
         <dl id="analytics-list">
           <div>
-            <dt>Total Minutes Exercised:</dt>
+            <dt>Total Minutes Exercised:{totalMinutes} mins</dt>
             <dd id="total-minutes" />
           </div>
           <div>
-            <dt>Favorite Exercise:</dt>
+            <dt>Favorite Exercise: {favoriteExercise}</dt>
             <dd id="favorite-exercise" />
           </div>
           <div>
-            <dt>Percentage Completed:</dt>
+            <dt>Percentage Completed: {percentageCompleted}%</dt>
             <dd id="percentage-completed" />
           </div>
         </dl>

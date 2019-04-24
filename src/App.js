@@ -29,6 +29,10 @@ function App() {
       });
   }, []);
 
+  // useEffect(() => {
+  //   calcAnalytics;
+  // }, [calcAnalytics, workouts]);
+
   const calcAnalytics = () => {
     const exerciseCounter = {};
     let totalExercises = 0;
@@ -98,7 +102,7 @@ function App() {
     <div className="App">
       <NavBar />
       <div id="container">
-        <SidebarAnalytics />
+        <SidebarAnalytics analytics={analytics} />
         <WorkoutLog workouts={workouts} toggleCompleted={toggleCompleted} />
       </div>
     </div>
