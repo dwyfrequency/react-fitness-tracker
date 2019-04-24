@@ -29,25 +29,42 @@ function App() {
       });
   }, []);
 
-  // const calcAnalytics = () => {
-  //   const exerciseCounter = {};
-  //   const totalMinutes = workouts.reduce((accum, { dailyWorkout }) => {
-  //     if (exerciseCounter[dailyWorkout.name] === undefined) {
-  //       exerciseCounter[dailyWorkout.name] = 1;
-  //     } else {
-  //       exerciseCounter[dailyWorkout.name] += 1;
-  //     }
-  //     return (accum += dailyWorkout.completed ? dailyWorkout.timeDuration : 0);
-  //   }, 0);
-  //   let totalExerciseCounter = 0,
-  //     totalCompletedCounter = 0,
-  //     favoriteExercise = '';
-  //   for (let i in exerciseCounter) {
-  //     if (exerciseCounter.hasOwnProperty(i)) {
-  //       totalExerciseCounter += '';
-  //     }
-  //   }
-  // };
+  const calcAnalytics = () => {
+    const exerciseCounter = {};
+    let totalExercises = 0;
+    let totalExercisesCompleted = 0;
+    const totalMinutes = workouts.reduce((accum, { dailyWorkout }) => {
+      if (exerciseCounter[dailyWorkout.name] === undefined) {
+        exerciseCounter[dailyWorkout.name] = 1;
+      } else {
+        exerciseCounter[dailyWorkout.name] += 1;
+      }
+      totalExercises++;
+      if (dailyWorkout.completed) {
+        totalExercisesCompleted++;
+        return accum + dailyWorkout.timeDuration;
+      }
+      return accum;
+    }, 0);
+    let maxCnt = 0;
+    let favoriteExercise = '';
+    for (let i in exerciseCounter) {
+      if (exerciseCounter.hasOwnProperty(i)) {
+        if (exerciseCounter[i] > maxCnt) {
+          maxCnt = exerciseCounter[i];
+          favoriteExercise = i;
+        }
+      }
+    }
+    const percentageCompleted =
+      (totalExercisesCompleted / totalExercises) * 100;
+    setAnalytics({
+      totalMinutes,
+      favoriteExercise,
+      percentageCompleted,
+      totalExercises,
+    });
+  };
 
   const toggleCompleted = (e, entryId, workoutName) => {
     const destructureDailyWorkout = dailyWorkout => {
