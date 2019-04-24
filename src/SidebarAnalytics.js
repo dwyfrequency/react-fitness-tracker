@@ -19,7 +19,7 @@ export const SidebarAnalytics = ({
             <dd id="favorite-exercise" />
           </div>
           <div>
-            <dt>Percentage Completed: {percentageCompleted}%</dt>
+            <dt>Percentage Completed: {percentageCompleted}</dt>
             <dd id="percentage-completed" />
           </div>
         </dl>
