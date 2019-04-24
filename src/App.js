@@ -6,9 +6,14 @@ import callWorkoutDB from './__mockapi/callWorkoutDb.js';
 
 function App() {
   const [workouts, setWorkouts] = useState([]);
+  const [analytics, setAnalytics] = useState({
+    totalMinutes: 0,
+    favoriteExercise: 'Eating',
+    percentageCompleted: 0,
+    totalExercises: 0,
+  });
 
   useEffect(() => {
-    // https://wanago.io/2018/09/17/javascript-testing-tutorial-part-four-mocking-api-calls-and-simulating-react-components-interactions/
     callWorkoutDB()
       .then(queryDBObj => queryDBObj.get())
       .then(data => {
@@ -23,6 +28,26 @@ function App() {
         setWorkouts(workoutsArr);
       });
   }, []);
+
+  // const calcAnalytics = () => {
+  //   const exerciseCounter = {};
+  //   const totalMinutes = workouts.reduce((accum, { dailyWorkout }) => {
+  //     if (exerciseCounter[dailyWorkout.name] === undefined) {
+  //       exerciseCounter[dailyWorkout.name] = 1;
+  //     } else {
+  //       exerciseCounter[dailyWorkout.name] += 1;
+  //     }
+  //     return (accum += dailyWorkout.completed ? dailyWorkout.timeDuration : 0);
+  //   }, 0);
+  //   let totalExerciseCounter = 0,
+  //     totalCompletedCounter = 0,
+  //     favoriteExercise = '';
+  //   for (let i in exerciseCounter) {
+  //     if (exerciseCounter.hasOwnProperty(i)) {
+  //       totalExerciseCounter += '';
+  //     }
+  //   }
+  // };
 
   const toggleCompleted = (e, entryId, workoutName) => {
     const destructureDailyWorkout = dailyWorkout => {
