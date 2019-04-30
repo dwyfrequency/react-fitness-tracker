@@ -19,16 +19,16 @@ app.use(express.urlencoded({ extended: false }));
 
 // Error handling middleware belongs on the app level, and should come after all of your other middleware (including routing!).
 
-app.use('/workouts', Workout);
-app.use('/exercises', Exercise);
+app.use('/workouts', require('./routes/workouts'));
+app.use('/exercises', require('./routes/exercises'));
 
-app.get('/', (req, res, next) => {
-  try {
-    res.send('<h1>Hello</h1>');
-  } catch (error) {
-    console.log(error);
-  }
-});
+// app.get('/', (req, res, next) => {
+//   try {
+//     res.send('<h1>Hello</h1>');
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 // catch 404 (i.e., no route was hit) and forward to error handler
 app.use((req, res, next) => {
@@ -46,9 +46,9 @@ app.use((err, req, res, next) => {
 const PORT = 3030;
 const init = async () => {
   try {
-    // await db.sync();
+    await db.sync();
     // Remember to remove { force: true } once you're done creating your schema:
-    await db.sync({ force: true });
+    // await db.sync({ force: true });
     app.listen(PORT, () => {
       console.log(`Server us listening on port ${PORT}!`);
     });
