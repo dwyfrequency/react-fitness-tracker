@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 const path = require('path');
-const { db } = require('./models');
+const { db, Workout, Exercise } = require('./models');
 
 // Middleware setup
 
@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 // app.use('/api', require('./routes'));
 
 // Error handling middleware belongs on the app level, and should come after all of your other middleware (including routing!).
+
+app.use('/workouts', Workout);
+app.use('/exercises', Exercise);
 
 app.get('/', (req, res, next) => {
   try {

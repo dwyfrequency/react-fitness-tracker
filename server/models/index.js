@@ -18,6 +18,10 @@ const Exercise = db.define('exercise', {
     type: Sequelize.TEXT,
     allowNull: false,
   },
+  timeDuration: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   completed: {
     type: Sequelize.BOOLEAN,
     defaultValue: true,
