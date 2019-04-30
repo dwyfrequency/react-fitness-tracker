@@ -23,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-// GET a single exercise by id
+// GET all exercises and their workout details with eager loading
 router.get('/all', async (req, res, next) => {
   try {
     const data = await Exercise.findAll({ include: [{ all: true }] }); // include all true allows for eager loadin

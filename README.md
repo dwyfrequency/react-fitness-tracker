@@ -1,3 +1,7 @@
+# Enjoy my project
+
+Start our server with nodemon `npm run start-server`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 icon: FaRegCheckCircle
