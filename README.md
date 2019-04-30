@@ -7,9 +7,11 @@ https://www.npmjs.com/package/react-icons
 https://react-icons.netlify.com/#/icons/fa
 
 To do:
-Test mock api
-Store the data in state
-Pass down the info to the relevant components
+Fix endpoint issues:
+
+- Issues with endpoints seems to be a babel issue. I need to figure out how to integrate backend and front end. Do I need separate project for my backend? Do I need to eject my create-react-app setup and customize the babel workings.
+
+retire fake api and sub in new apis from express
 
 ## Available Scripts
 

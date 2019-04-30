@@ -6,7 +6,7 @@ const db = new Sequelize('postgres://localhost:5432/react-fitness-tracker', {
 
 const Workout = db.define('workout', {
   name: { type: Sequelize.STRING, allowNull: false },
-  date: Sequelize.DATE,
+  date: { type: Sequelize.DATE },
 });
 
 const Exercise = db.define('exercise', {
