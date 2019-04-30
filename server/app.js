@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // You'll of course want static middleware so your browser can request things
 // like your 'index.html' and 'bundle.js'.
-// app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 
 // other routes go below
 // app.use('/api', require('./routes'));
