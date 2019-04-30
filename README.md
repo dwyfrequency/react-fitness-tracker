@@ -10,8 +10,10 @@ To do:
 Fix endpoint issues:
 
 - Issues with endpoints seems to be a babel issue. I need to figure out how to integrate backend and front end. Do I need separate project for my backend? Do I need to eject my create-react-app setup and customize the babel workings.
-
-retire fake api and sub in new apis from express
+  - FIXED: had to reseed db
+- allow backend and frontend to run at once
+  - FIXED: removed link for react icon from index.html which now allows us to launch the front end and backend with nodemon. Run build and point our static assets in app.js to reference that build
+- retire fake api and sub in new apis from express
 
 ## Available Scripts
 
