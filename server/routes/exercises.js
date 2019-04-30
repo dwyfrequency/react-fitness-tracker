@@ -1,5 +1,5 @@
 const express = require('express');
-const { Exercise } = require('../models');
+const { Exercise, Workout } = require('../models');
 const router = express.Router();
 
 // GET all exercises
@@ -18,6 +18,16 @@ router.get('/:id', async (req, res, next) => {
     const exercise = await Exercise.findByPk(+req.params.id);
     if (!exercise) return res.sendStatus(404);
     res.json(exercise);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// GET a single exercise by id
+router.get('/all', async (req, res, next) => {
+  try {
+    const data = await Exercise.findAll({ include: [{ all: true }] }); // include all true allows for eager loadin
+    res.json(data);
   } catch (error) {
     console.log(error);
   }
